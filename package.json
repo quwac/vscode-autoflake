@@ -38,37 +38,37 @@
           "autoflake.verbose": {
             "type": "boolean",
             "default": false,
-            "scope": "application",
+            "scope": "resource",
             "description": "Show executed command in vscode window"
           },
           "autoflake.sortImports": {
             "type": "boolean",
             "default": false,
-            "scope": "application",
+            "scope": "resource",
             "description": "Sorting the imports after the cleaning"
           },
           "autoflake.removeAllUnusedImports": {
             "type": "boolean",
             "default": true,
-            "scope": "application",
+            "scope": "resource",
             "description": "Remove all unused imports"
           },
           "autoflake.removeAllUnusedVariables": {
             "type": "boolean",
             "default": false,
-            "scope": "application",
+            "scope": "resource",
             "description": "Remove all unused variables"
           },
           "autoflake.removeDuplicateKeys": {
             "type": "boolean",
             "default": false,
-            "scope": "application",
+            "scope": "resource",
             "description": "Remove duplicated keys in objects"
           },
           "autoflake.path": {
             "type": "string",
             "default": "autoflake",
-            "scope": "application",
+            "scope": "machine-overridable",
             "description": "Path to autoflake binary"
           }
         }
