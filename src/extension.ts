@@ -122,15 +122,21 @@ function getPoetryVirtualenvPath(workspaceFolderPath: string): string | null {
     'list',
     '--full-path',
   ].join(' ');
-  const result = child_process.execSync(command).toString();
 
-  const candidate = result
-    .split('\n')
-    .find((line) => line.indexOf(ACTIVATED_PHRASE) > 0)
-    ?.replace('\r', '')
-    ?.replace(ACTIVATED_PHRASE, '');
+  try {
+    const result = child_process.execSync(command).toString();
 
-  return candidate && fs.existsSync(candidate) ? candidate : null;
+    const candidate = result
+      .split('\n')
+      .find((line) => line.indexOf(ACTIVATED_PHRASE) > 0)
+      ?.replace('\r', '')
+      ?.replace(ACTIVATED_PHRASE, '');
+
+    return candidate && fs.existsSync(candidate) ? candidate : null;
+  } catch (e) {
+    // May be poetry not installed.
+    return null;
+  }
 }
 
 function getVirtualenvBinPath(): string | null {
